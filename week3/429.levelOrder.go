@@ -26,31 +26,32 @@
  *     Children []*Node
  * }
  */
-package main
 
-type Node struct {
-	Val      int
-	Children []*Node
-}
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
 
-func levelOrder(root *Node) (ans [][]int) {
+func levelOrder(root *Node) [][]int {
+	ret := [][]int{}
 	if root == nil {
-		return
+		return ret
 	}
-	q := []*Node{root}
-	for q != nil {
-		level := []int{}
-		tmp := q
-		q = nil
-		for _, node := range tmp {
-			level = append(level, node.Val)
-			q = append(q, node.Children...)
+	queue := []*Node{root}
+	for i := 0; len(queue) > 0; i++ {
+		ret = append(ret, []int{})
+		p := []*Node{}
+		for j := 0; j < len(queue); j++ {
+			node := queue[j]
+			ret[i] = append(ret[i], node.Val)
+			for _, Children := range node.Children {
+				p = append(p, Children)
+			}
 		}
-		ans = append(ans, level)
+		queue = p
 	}
-	return
-}
-
-func main() {
-
+	return ret
 }

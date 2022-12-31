@@ -33,7 +33,7 @@
  * }
  */
 func inorderTraversal(root *TreeNode) []int {
-	var inorder func(node *TreeNode)
+	var dfs func(node *TreeNode)
 	var res []int
 	// dfs: depth first search
 	dfs = func(node *TreeNode) {
