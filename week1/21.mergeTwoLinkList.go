@@ -6,6 +6,7 @@
 *      Next *ListNode
 * }
  */
+
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	// 如果 list1 等于 list2 ，优先返回 list2
 	if list1 == nil {

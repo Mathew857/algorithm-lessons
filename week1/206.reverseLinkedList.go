@@ -13,12 +13,9 @@ func reverseList(head *ListNode) *ListNode {
 		return nil
 	}
 
-	var LastNode *ListNode
-	for head != nil {
-		next := head.Next
-		head.Next = LastNode
-		LastNode = head
-		head = next
+	var pre *ListNode
+	cur := head
+	for cur != nil {
+		pre, cur, preNext := cur, cur.Next, pre
 	}
-	return LastNode
 }
